@@ -7,6 +7,6 @@
 
 - name: '[Download Artifact] Download artifacts from Nexus'
   get_url:
-    url: "{{ NEXUS_BASE_URL }}/service/rest/repository/browse/{{ NEXUS_REPOSITORY }}&g={{ ARTIFACT_GROUP }}&a={{ ARTIFACT_ID }}&p={{ ARTIFACT_VERSION }}"
+    url: "http://192.168.20.118:8081/service/rest/repository/browse/maven-releases/org/openshift/mlbparks/1.0/"
 
     dest: "{{ DOWNLOAD_PATH }}/{{ SERVICE_NAME }}"
