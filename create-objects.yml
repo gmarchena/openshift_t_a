@@ -1,0 +1,8 @@
+---
+- name: '[Global] Create Objects'
+  hosts: all
+  become: false
+  roles:
+    - role: ocp_login
+    - role: create-clean-workspace
+    - role: create_objects

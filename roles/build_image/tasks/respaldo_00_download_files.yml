@@ -1,0 +1,12 @@
+---
+- name: '[Build Image] Get updated files from git repository'
+  git:
+    repo: "https://{{ DOCKERFILE_GIT_URL }}"
+    dest: "{{ DOWNLOAD_PATH }}/{{ SERVICE_NAME }}"
+    accept_hostkey: yes
+
+- name: '[Download Artifact] Download artifacts from Nexus'
+  get_url:
+    url: "{{ NEXUS_BASE_URL }}/service/rest/repository/browse/{{ NEXUS_REPOSITORY }}&g={{ ARTIFACT_GROUP }}&a={{ ARTIFACT_ID }}&p={{ ARTIFACT_VERSION }}"
+
+    dest: "{{ DOWNLOAD_PATH }}/{{ SERVICE_NAME }}"
